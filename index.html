@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destertedislandquiz</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="quizzz-container">
+        <h1>Will you survive the desterted island?</h1>
+        <p class="description">You think you are visiting a cool vacation spot, but moments before you are dragged away, you realize you are traveling to a deserted island. What are you bringing with you? </p>
+        <div id = "q">
+            <div class="question active">
+            <div class="question-text">What food are you bringing with you?</div>
+
+        </div>
+
+            <div class="options">
+                <button class="option-btn" onclick="selectOption('escape')"></button>
+                <button class="option-btn" onclick="selectOption('influencer')"></button>
+                <button class="option-btn" onclick="selectOption('civilization')"></button>
+                <button class="option-btn" onclick="selectOption('fail')"></button>
+    </div>
+        </div>
+          <div id = "q">
+            <div class="question active">
+            <div class="question-text">What fun thing are you bringing?</div>
+
+        </div>
+
+            <div class="options">
+                <button class="option-btn" onclick="selectOption('escape')"></button>
+                <button class="option-btn" onclick="selectOption('influencer')"></button>
+                <button class="option-btn" onclick="selectOption('civilization')"></button>
+                <button class="option-btn" onclick="selectOption('fail')"></button>
+    </div>
+        </div>
+  <div id = "q">
+            <div class="question active">
+            <div class="question-text">Choose a survival tool:</div>
+
+        </div>
+
+            <div class="options">
+                <button class="option-btn" onclick="selectOption('escape')"></button>
+                <button class="option-btn" onclick="selectOption('influencer')"></button>
+                <button class="option-btn" onclick="selectOption('civilization')"></button>
+                <button class="option-btn" onclick="selectOption('fail')"></button>
+    </div>
+        </div>
+          <div id = "q">
+            <div class="question active">
+            <div class="question-text">Choose something overpowered to bring:</div>
+
+        </div>
+
+            <div class="options">
+                <button class="option-btn" onclick="selectOption('escape')"></button>
+                <button class="option-btn" onclick="selectOption('influencer')"></button>
+                <button class="option-btn" onclick="selectOption('civilization')"></button>
+                <button class="option-btn" onclick="selectOption('fail')"></button>
+    </div>
+        </div>
+    </div>
+
+   <script>
+    let currentQuestion = 0;
+const scores = {
+    escape: 0;
+    influencer: 0;
+    civilization: 0;
+    fail: 0;
+
+
+};
+const results {
+    escape:{
+        title: ""
+        desc:""
+    },
+    influencer:{
+        title:""
+        desc:""
+
+    },
+    civilization:{
+title:""
+desc:""
+    },
+    fail:{
+    title:""
+    desc:""
+    },
+};
+    function selectOption(category) {
+        scores [category]+++;
+         const questions = document.querySelectorAll('.q');
+questions[currentQuestion].classList.remove('active');
+currentQuestion ++;
+ if (currentQuestion < questions.length) {
+            questions[currentQuestion].classList.add('active');
+        } else {
+            showResults();
+    }
+    }
+
+   </script> 
+</body>
+</html>
