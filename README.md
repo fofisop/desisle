@@ -1,2 +1,1 @@
-# desisle
-what would you bring to a desterted island?
+What would you bring to a desterted island? This question finally comes to rest when you complete this fun personality quiz. Made for off-track at hack club! It's about traveling... but to a unique place... most importantly, will you make it out alive?

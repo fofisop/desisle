@@ -3,6 +3,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Destertedislandquiz</title>
     <style>
+        body{
+            
+        }
+ .quiz-container {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            padding: 30 px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+ };
+ .question.active {
+            display: block;
+        }
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
 
     </style>
 </head>
@@ -17,27 +36,27 @@
         </div>
 
             <div class="options">
-                <button class="option-btn" onclick="selectOption('escape')"></button>
+                <button class="option-btn" onclick="selectOption('escape')">Energy bar</button>
                 <button class="option-btn" onclick="selectOption('influencer')"></button>
                 <button class="option-btn" onclick="selectOption('civilization')"></button>
-                <button class="option-btn" onclick="selectOption('fail')"></button>
+                <button class="option-btn" onclick="selectOption('fail')">Fries and hot dog</button>
     </div>
         </div>
           <div id = "q">
-            <div class="question active">
+            <div class="question">
             <div class="question-text">What fun thing are you bringing?</div>
 
         </div>
 
             <div class="options">
                 <button class="option-btn" onclick="selectOption('escape')"></button>
-                <button class="option-btn" onclick="selectOption('influencer')"></button>
+                <button class="option-btn" onclick="selectOption('influencer')">Phone</button>
                 <button class="option-btn" onclick="selectOption('civilization')"></button>
                 <button class="option-btn" onclick="selectOption('fail')"></button>
     </div>
         </div>
   <div id = "q">
-            <div class="question active">
+            <div class="question">
             <div class="question-text">Choose a survival tool:</div>
 
         </div>
@@ -50,10 +69,10 @@
     </div>
         </div>
           <div id = "q">
-            <div class="question active">
+            <div class="question">
             <div class="question-text">Choose something overpowered to bring:</div>
 
-        </div>
+      </div>
 
             <div class="options">
                 <button class="option-btn" onclick="selectOption('escape')"></button>
@@ -63,38 +82,49 @@
     </div>
         </div>
     </div>
+<div id =" result">
+    <h2> Your result is...</h2>
+    <img id="nameplate.png" src="nameplate.png">
+    <div class = "text">
+        <div id = "title">
+            <p id = "desc">
 
+            </p>
+        </div>
+    </div>
+     <button class="restart-btn" onclick="restartQuiz()">Take It Again</button>
+</div>
    <script>
     let currentQuestion = 0;
 const scores = {
-    escape: 0;
-    influencer: 0;
-    civilization: 0;
-    fail: 0;
+    escape: 0,
+    influencer: 0,
+    civilization: 0,
+    fail: 0,
 
 
 };
-const results {
+const results = {
     escape:{
-        title: ""
-        desc:""
+        title: "You escaped!",
+        desc:"You brought along the right things, and you found a way to get away from the island."
     },
     influencer:{
-        title:""
-        desc:""
+        title:"You didn't quite escape...",
+        desc:"But hey, at least you are the trendiest person on the island!"
 
     },
     civilization:{
-title:""
-desc:""
+title:"You grew a civilization!",
+desc:"You find a hidden group of inhabitants and became their leader. Together, you built a thriving city, making this island not so deserted as you initially thought."
     },
     fail:{
-    title:""
-    desc:""
+    title:"You failed.",
+    desc:"You were not able to bring the right objects to survive. Your journey ends here. But you can take the trip again!"
     },
 };
     function selectOption(category) {
-        scores [category]+++;
+        scores [category]++;
          const questions = document.querySelectorAll('.q');
 questions[currentQuestion].classList.remove('active');
 currentQuestion ++;
@@ -104,6 +134,32 @@ currentQuestion ++;
             showResults();
     }
     }
+function showResults() {
+    document.getElementById('q').style.display='none';
+    let maxCategory = "escape";
+let maxScore = -1;
+
+  for (const category in scores) {
+            if (scores[category] > maxScore) {
+                maxScore = scores[category];
+                maxCategory = category;
+            }
+        }
+    }
+        const finalResult = results[maxCategory];
+          document.getElementById('result-title').innerText = finalResult.title;
+        document.getElementById('result-description').innerText = finalResult.desc;
+            document.getElementById('result-container').style.display = 'block';
+    }
+
+
+         function restartQuiz() {
+        currentQuestion = 0;
+          for (const category in scores) {
+            scores[category] = 0;
+        }
+          document.getElementById('result-container').style.display = 'none';
+         }
 
    </script> 
 </body>
