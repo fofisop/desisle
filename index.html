@@ -4,13 +4,36 @@
     <title>Destertedislandquiz</title>
     <style>
        
- .quiz-container {
+ .quizzz-container {
             max-width: 600px;
             width: 100%;
-            background: white;
             padding: 30px;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+ }
+ body{
+    background-image:url(okyay.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display:flex;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color:#1B3A2B
+
+ }
+ .option-btn{
+background-color: #7cb342; 
+color: beige;
+border-radius: 12px;
+padding: 12px 20px;
+margin: 8px;
+font-size: 16px;
+cursor: pointer;
+transition: 0.2s ease;
+
+
+    
  }
  .text-overlay {
      position: absolute; 
@@ -28,6 +51,7 @@
     justify-content: center;
     align-items: center
     ;
+    color: beige;
     #title {
     font-weight: bold;
     font-size: 20px;
@@ -37,7 +61,7 @@
     margin: 0;
 }
 
-    width: 85%;}
+}
  .q.active {
             display: block;
         }
@@ -58,10 +82,20 @@
             overflow: hidden;
 max-width: 350px;
 }
+
 .image-container img {
     width: 100%;
     height: auto;
     display: block;
+}
+.options{
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+
+}
+.q{
+    display: none;
+
 }
     </style>
 </head>
@@ -77,12 +111,12 @@ max-width: 350px;
 
             <div class="options">
                 <button class="option-btn" onclick="selectOption('escape')">Energy bar</button>
-                <button class="option-btn" onclick="selectOption('influencer')"></button>
-                <button class="option-btn" onclick="selectOption('civilization')"></button>
+                <button class="option-btn" onclick="selectOption('influencer')">Starbucks cake pop</button>
+                <button class="option-btn" onclick="selectOption('civilization')">Bunch of salad leaves</button>
                 <button class="option-btn" onclick="selectOption('fail')">Fries and hot dog</button>
     </div>
         </div>
-          </div>
+          
           <div class = "q">
             
             <div class="question-text">What fun thing are you bringing?</div>
@@ -91,8 +125,8 @@ max-width: 350px;
             <div class="options">
                 <button class="option-btn" onclick="selectOption('escape')">Fireworks</button>
                 <button class="option-btn" onclick="selectOption('influencer')">Labubu</button>
-                <button class="option-btn" onclick="selectOption('civilization')"></button>
-                <button class="option-btn" onclick="selectOption('fail')"></button>
+                <button class="option-btn" onclick="selectOption('civilization')">Legos</button>
+                <button class="option-btn" onclick="selectOption('fail')">Nintendo switch</button>
     </div>
         </div>
          
@@ -104,10 +138,11 @@ max-width: 350px;
         
 
             <div class="options">
-                <button class="option-btn" onclick="selectOption('escape')"></button>
-                <button class="option-btn" onclick="selectOption('influencer')"></button>
-                <button class="option-btn" onclick="selectOption('civilization')">A machete</button>
-                <button class="option-btn" onclick="selectOption('fail')"></button>
+                <button class="option-btn" onclick="selectOption('escape')">A machete</button>
+                 <button class="option-btn" onclick="selectOption('civilization')">Tarps and hammocks</button>
+                <button class="option-btn" onclick="selectOption('fail')">Flint</button>
+                <button class="option-btn" onclick="selectOption('influencer')">Aesthetic survival kit</button>
+               
    </div>
   </div>
         
@@ -118,15 +153,17 @@ max-width: 350px;
       
 
             <div class="options">
-                <button class="option-btn" onclick="selectOption('escape')"></button>
-                <button class="option-btn" onclick="selectOption('influencer')">Phone</button>
-                <button class="option-btn" onclick="selectOption('civilization')">A person/friend</button>
-                <button class="option-btn" onclick="selectOption('fail')"></button>
-    
-            </div> </div>
+                <button class="option-btn" onclick="selectOption('influencer')">Phone and ring light</button>
+                <button class="option-btn" onclick="selectOption('fail')">A credit card</button>
+                <button class="option-btn" onclick="selectOption('escape')">A raft</button>
+                             <button class="option-btn" onclick="selectOption('civilization')">A person/friend</button>
 
+    
+            </div>    
+         </div> 
         </div>
-    </div>
+    
+    
 <div id ="result">
     <h2> Your result is...</h2>
     <div class = "image-container">
@@ -141,6 +178,12 @@ max-width: 350px;
 </div>
 <button class="restart-btn" onclick="restartQuiz()">Take It Again</button>
 </div>
+
+
+        </div>
+    </div>
+    </div>
+
 
    <script>
     let currentQuestion = 0;
@@ -207,7 +250,16 @@ let maxScore = -1;
             scores[category] = 0;
         }
           document.getElementById('result').style.display = 'none';
+          document.getElementById('q').style.display = 'block';
+           const questions = document.querySelectorAll('.q');
+
+             questions.forEach((q, index) => {
+        q.classList.remove('active');
+         if (index === 0) {
+            q.classList.add('active');
          }
+        });
+    }
 
    </script> 
 </body>
